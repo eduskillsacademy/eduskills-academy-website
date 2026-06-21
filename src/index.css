@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --navy: #16285C;
+  --navy-deep: #0E1B40;
+  --marigold: #F5A623;
+  --amber: #E0791A;
+  --cream: #FBF7EE;
+  --paper: #F5EFE2;
+  --ink: #1A1A1A;
+  --sage: #3F7D5C;
+  --sage-soft: #E8F0EA;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--marigold);
+  color: var(--navy-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--marigold);
+  outline-offset: 3px;
+}
