@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { CheckCircle2, Send, CreditCard, Info } from "lucide-react";
+import { CheckCircle2, Send, CreditCard, Info, AlertCircle, Loader2 } from "lucide-react";
 import { boardPrograms, skillPrograms, academy } from "../data/academy";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xqevzqgl";
 
 const allProgramNames = [
   ...boardPrograms.map((p) => `${p.range} — ${p.title}`),
@@ -19,20 +21,32 @@ export default function Enroll() {
     program: preselected,
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // No backend is connected yet — this stores nothing and sends nothing.
-    // Wire this up to a real form backend (e.g. email service or database) before going live.
-    setSubmitted(true);
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(e.target),
+      });
+      if (res.ok) {
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
-  if (submitted) {
+  if (status === "sent") {
     return (
       <div className="max-w-xl mx-auto px-5 sm:px-8 py-24 text-center">
         <CheckCircle2 size={52} className="text-[var(--sage)] mx-auto mb-5" />
@@ -40,9 +54,8 @@ export default function Enroll() {
           Enquiry received
         </h1>
         <p className="text-[var(--navy)]/70 mb-2">
-          Thanks, {form.name || "there"}! This is a working demo form, so nothing
-          was actually sent yet — but this is exactly the flow your real
-          enrollment process will follow.
+          Thanks, {form.name || "there"}! Your enquiry has been sent to our
+          team — we'll reach out shortly to confirm your batch and fees.
         </p>
         <p className="text-[var(--navy)]/50 text-sm">
           In the meantime, reach us directly at{" "}
@@ -70,6 +83,7 @@ export default function Enroll() {
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-20">
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-[var(--navy)]/10 shadow-sm px-7 py-8 space-y-5">
+          <input type="hidden" name="_subject" value="New Enrollment Enquiry — EduSkills Academy" />
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-[var(--navy)] mb-1.5">
@@ -135,11 +149,31 @@ export default function Enroll() {
             />
           </div>
 
+          {status === "error" && (
+            <div className="flex items-start gap-2.5 bg-red-50 text-red-700 text-sm rounded-lg px-4 py-3">
+              <AlertCircle size={16} className="mt-0.5 shrink-0" />
+              <span>
+                Something went wrong sending your enquiry. Please try again,
+                or contact us directly at{" "}
+                <a href={`tel:${academy.phone}`} className="underline">{academy.phoneDisplay}</a>.
+              </span>
+            </div>
+          )}
+
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[var(--navy)] text-white font-semibold hover:bg-[var(--navy-deep)] transition-colors"
+            disabled={status === "sending"}
+            className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[var(--navy)] text-white font-semibold hover:bg-[var(--navy-deep)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Submit Enquiry <Send size={17} />
+            {status === "sending" ? (
+              <>
+                Sending <Loader2 size={17} className="animate-spin" />
+              </>
+            ) : (
+              <>
+                Submit Enquiry <Send size={17} />
+              </>
+            )}
           </button>
         </form>
 
