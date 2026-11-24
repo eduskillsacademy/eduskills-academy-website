@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { boardPrograms } from "../data/academy";
+import SEO from "../components/SEO";
 
 export default function SchoolBoards() {
   return (
     <div>
+      <SEO
+        title="School Tuition in Kumbakonam | EduSkills Academy"
+        description="Explore school tuition at EduSkills Academy, Kumbakonam. Academic support for school students, with subject coaching and guidance for board examinations."
+        path="/school-boards"
+      />
       <section className="bg-[var(--navy)] text-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-14">
           <span className="font-mono text-xs tracking-wide uppercase text-[var(--marigold)]">
