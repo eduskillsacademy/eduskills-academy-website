@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { skillPrograms } from "../data/academy";
+import SEO from "../components/SEO";
 
 export default function SkillsProgramsList() {
   return (
     <div>
+      <SEO
+        title="Spoken English, Coding & AI Classes in Kumbakonam | EduSkills"
+        description="Explore Spoken English, Speed Maths, Quantitative Aptitude, AI Tools and Computer Coding classes at EduSkills Academy in Kumbakonam."
+        path="/skills-programs"
+      />
       <section className="bg-[var(--amber)] text-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-14">
           <span className="font-mono text-xs tracking-wide uppercase text-white/80">
