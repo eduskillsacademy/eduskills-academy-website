@@ -1,170 +1,286 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, Sparkles, MapPin, Phone } from "lucide-react";
-import { boardPrograms, skillPrograms, academy } from "../data/academy";
+import {
+  ArrowUpRight, BookOpen, Brain, Code2, GraduationCap, Languages,
+  MapPin, Sparkles, Target, CheckCircle2, ChevronRight
+} from "lucide-react";
+import { skillPrograms, academy } from "../data/academy";
+
+const pathways = [
+  {
+    number: "01",
+    title: "Academic learning",
+    description: "Build strong subject foundations and prepare with confidence for school examinations.",
+    meta: "School tuition · Classes 1–12",
+    icon: BookOpen,
+    tone: "blue",
+    href: "/school-boards",
+  },
+  {
+    number: "02",
+    title: "Communication",
+    description: "Develop everyday English, grammar and the confidence to express ideas clearly.",
+    meta: "Spoken English · Grammar",
+    icon: Languages,
+    tone: "lavender",
+    href: "/skills-programs/spoken-english",
+  },
+  {
+    number: "03",
+    title: "Logical thinking",
+    description: "Strengthen problem-solving through mental mathematics and aptitude practice.",
+    meta: "Speed Maths · Aptitude",
+    icon: Brain,
+    tone: "mint",
+    href: "/skills-programs",
+  },
+  {
+    number: "04",
+    title: "Digital skills",
+    description: "Explore computing, coding and practical AI tools for a changing world.",
+    meta: "Coding · AI · Computing",
+    icon: Code2,
+    tone: "peach",
+    href: "/skills-programs",
+  },
+];
+
+const principles = [
+  "Personal attention and structured learning",
+  "Academic support alongside practical skills",
+  "Learning pathways for different stages of life",
+];
 
 export default function Home() {
   return (
-    <div>
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b border-[var(--navy)]/10">
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-          <div className="w-full h-full" style={{
-            backgroundImage: "repeating-linear-gradient(0deg, var(--navy) 0px, var(--navy) 1px, transparent 1px, transparent 32px)"
-          }} />
-        </div>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28 relative">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 font-mono text-xs tracking-wide uppercase text-[var(--amber)] bg-[var(--marigold)]/15 px-3 py-1.5 rounded-full mb-6">
-              Kumbakonam · Center & Online
-            </span>
-            <h1 className="font-display font-semibold text-4xl sm:text-6xl text-[var(--navy)] leading-[1.05] mb-6">
-              Where board exams
-              <br />
-              <span className="text-[var(--amber)]">and real skills</span>
-              <br />
-              are taught together.
-            </h1>
-            <p className="text-lg text-[var(--navy)]/70 leading-relaxed mb-8 max-w-lg">
-              {academy.name} runs two tracks under one roof: CBSE / ICSE / State
-              Board tuition from 6th to 12th, and practical skills programs —
-              Spoken English, Aptitude, AI Tools — for students and professionals.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to="/enroll"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[var(--navy)] text-white font-semibold hover:bg-[var(--navy-deep)] transition-colors"
-              >
-                Enroll Now <ArrowRight size={18} />
-              </Link>
-              <a
-                href={`tel:${academy.phone}`}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border-2 border-[var(--navy)] text-[var(--navy)] font-semibold hover:bg-[var(--navy)]/5 transition-colors"
-              >
-                <Phone size={18} /> Call {academy.phoneDisplay}
-              </a>
+    <div className="home-page">
+      <section className="hero-shell">
+        <div className="hero-orb hero-orb-one" />
+        <div className="hero-orb hero-orb-two" />
+        <div className="site-container hero-grid">
+          <div className="hero-copy">
+            <div className="eyebrow-pill">
+              <span className="eyebrow-dot" />
+              LEARN WITH PURPOSE · GROW WITH CONFIDENCE
             </div>
+            <h1>
+              A brighter way
+              <br />
+              to <span className="text-gradient">learn, grow</span>
+              <br />
+              and move forward.
+            </h1>
+            <p className="hero-description">
+              From strong academic foundations to future-ready skills,
+              EduSkills Academy helps learners take their next step with
+              clarity and confidence.
+            </p>
+            <div className="hero-actions">
+              <Link to="/skills-programs" className="button-primary">
+                Explore programmes <ArrowUpRight size={18} />
+              </Link>
+              <Link to="/about" className="button-secondary">
+                Discover the academy <ChevronRight size={17} />
+              </Link>
+            </div>
+            <div className="hero-proof">
+              <div className="proof-icon"><GraduationCap size={19} /></div>
+              <div>
+                <strong>One place. More ways to grow.</strong>
+                <span>Academic learning and practical skills in one academy.</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-visual">
+            <div className="hero-image-frame">
+              <img
+                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85"
+                alt="University students celebrating their learning journey"
+                fetchPriority="high"
+              />
+              <div className="hero-image-wash" />
+              <div className="image-caption">
+                <span className="caption-kicker">THE NEXT CHAPTER</span>
+                <strong>Make learning<br />your advantage.</strong>
+              </div>
+            </div>
+            <div className="floating-note floating-note-top">
+              <span className="floating-note-icon"><Sparkles size={17} /></span>
+              <span><strong>Curiosity first</strong><small>Confidence follows</small></span>
+            </div>
+            <div className="floating-note floating-note-bottom">
+              <span className="floating-note-icon note-icon-blue"><Target size={18} /></span>
+              <span><strong>Skills for tomorrow</strong><small>Learn by doing</small></span>
+            </div>
+            <div className="hero-stamp">EDU<br /><span>+</span><br />SKILLS</div>
+          </div>
+        </div>
+        <div className="hero-bottom-line">
+          <div className="site-container hero-bottom-inner">
+            <span>ACADEMIC EXCELLENCE</span><i />
+            <span>PERSONAL DEVELOPMENT</span><i />
+            <span>FUTURE-READY SKILLS</span>
           </div>
         </div>
       </section>
 
-      {/* SIGNATURE: THE LEDGER — two tracks as a noticeboard timetable */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-8 py-20">
-        <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+      <section className="intro-section section-pad">
+        <div className="site-container intro-grid">
           <div>
-            <span className="font-mono text-xs tracking-wide uppercase text-[var(--amber)]">
-              The Academy Ledger
-            </span>
-            <h2 className="font-display font-semibold text-3xl sm:text-4xl text-[var(--navy)] mt-2">
-              Two tracks, one academy
+            <span className="section-kicker">THE EDUSKILLS APPROACH</span>
+            <h2 className="section-heading">
+              Education should prepare you for <span className="text-gradient">more.</span>
             </h2>
           </div>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-6">
-          {/* Track 1: School Boards */}
-          <div className="bg-white rounded-2xl border border-[var(--navy)]/10 shadow-sm overflow-hidden">
-            <div className="bg-[var(--navy)] px-6 py-5 flex items-center gap-3">
-              <BookOpen size={22} className="text-[var(--marigold)]" />
-              <div>
-                <h3 className="font-display font-semibold text-xl text-white">School Boards</h3>
-                <p className="text-xs font-mono text-white/60">CBSE · ICSE · State Board — Tamil & English</p>
-              </div>
-            </div>
-            <div className="divide-y divide-[var(--navy)]/8">
-              {boardPrograms.map((p) => (
-                <div key={p.code} className="px-6 py-4 flex items-start gap-4">
-                  <span className="font-mono text-xs text-[var(--amber)] bg-[var(--marigold)]/10 px-2 py-1 rounded mt-0.5 shrink-0">
-                    {p.code}
-                  </span>
-                  <div>
-                    <p className="font-semibold text-[var(--navy)] text-sm">
-                      {p.range} <span className="font-normal text-[var(--navy)]/60">— {p.title}</span>
-                    </p>
-                    <p className="text-sm text-[var(--navy)]/60 mt-0.5">{p.note}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <Link
-              to="/school-boards"
-              className="flex items-center justify-between px-6 py-4 bg-[var(--paper)] text-[var(--navy)] font-semibold text-sm hover:bg-[var(--marigold)]/15 transition-colors"
-            >
-              View full board curriculum <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          {/* Track 2: Skills */}
-          <div className="bg-white rounded-2xl border border-[var(--navy)]/10 shadow-sm overflow-hidden">
-            <div className="bg-[var(--amber)] px-6 py-5 flex items-center gap-3">
-              <Sparkles size={22} className="text-white" />
-              <div>
-                <h3 className="font-display font-semibold text-xl text-white">Skills Programs</h3>
-                <p className="text-xs font-mono text-white/70">For students, graduates & professionals</p>
-              </div>
-            </div>
-            <div className="divide-y divide-[var(--navy)]/8">
-              {skillPrograms.map((p) => (
-                <div key={p.slug} className="px-6 py-4 flex items-start gap-4">
-                  <span className="font-mono text-xs text-[var(--navy)] bg-[var(--navy)]/8 px-2 py-1 rounded mt-0.5 shrink-0">
-                    {p.code}
-                  </span>
-                  <div>
-                    <p className="font-semibold text-[var(--navy)] text-sm">{p.title}</p>
-                    <p className="text-sm text-[var(--navy)]/60 mt-0.5">{p.short}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <Link
-              to="/skills-programs"
-              className="flex items-center justify-between px-6 py-4 bg-[var(--paper)] text-[var(--navy)] font-semibold text-sm hover:bg-[var(--marigold)]/15 transition-colors"
-            >
-              View all skills programs <ArrowRight size={16} />
-            </Link>
+          <div className="intro-aside">
+            <p>
+              Learning is more than completing a syllabus. It is about asking
+              better questions, communicating clearly and building the
+              confidence to take on what comes next.
+            </p>
+            <Link to="/about" className="text-link">Get to know us <ArrowUpRight size={17} /></Link>
           </div>
         </div>
       </section>
 
-      {/* WHY US */}
-      <section className="bg-[var(--navy)] text-white">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-20 grid sm:grid-cols-3 gap-10">
-          <div>
-            <p className="font-display text-3xl text-[var(--marigold)] mb-2">All Boards</p>
-            <p className="text-white/70 text-sm leading-relaxed">
-              CBSE, ICSE and State Board — Tamil and English medium, under one roof.
-            </p>
-          </div>
-          <div>
-            <p className="font-display text-3xl text-[var(--marigold)] mb-2">6th to PhD-level Faculty</p>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Led by {academy.founder} ({academy.founderCreds}), with subject-wise expert teachers.
-            </p>
-          </div>
-          <div>
-            <p className="font-display text-3xl text-[var(--marigold)] mb-2">Center + Online</p>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Attend in person at Kumbakonam or join live online batches from anywhere.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* LOCATION STRIP */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
-        <div className="bg-[var(--paper)] rounded-2xl px-6 py-8 sm:px-10 sm:py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="flex items-start gap-4">
-            <MapPin className="text-[var(--amber)] mt-1 shrink-0" size={24} />
+      <section className="pathways-section section-pad">
+        <div className="site-container">
+          <div className="section-topline">
             <div>
-              <p className="font-display font-semibold text-lg text-[var(--navy)]">Visit our center</p>
-              <p className="text-[var(--navy)]/70 text-sm mt-1">{academy.address}</p>
+              <span className="section-kicker">EXPLORE YOUR PATH</span>
+              <h2 className="section-heading">Find the space to <span className="text-gradient">level up.</span></h2>
+            </div>
+            <p className="section-side-copy">
+              Thoughtfully designed learning experiences for school students,
+              college learners and those building new skills.
+            </p>
+          </div>
+
+          <div className="pathway-grid">
+            {pathways.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link to={item.href} className={`pathway-card pathway-${item.tone}`} key={item.number}>
+                  <div className="pathway-card-top">
+                    <span className="pathway-number">{item.number} / 04</span>
+                    <span className="pathway-icon"><Icon size={22} strokeWidth={1.8} /></span>
+                  </div>
+                  <div className="pathway-card-content">
+                    <span className="pathway-meta">{item.meta}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                  <span className="pathway-arrow"><ArrowUpRight size={20} /></span>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="all-programmes-row">
+            <span>Explore all learning programmes</span>
+            <Link to="/skills-programs" className="text-link">View programmes <ArrowUpRight size={17} /></Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="academic-section section-pad">
+        <div className="site-container academic-panel">
+          <div className="academic-copy">
+            <span className="section-kicker section-kicker-light">A STRONG FOUNDATION</span>
+            <h2>Make every subject a step forward.</h2>
+            <p>
+              Supportive school tuition designed to help learners understand
+              concepts, practise with purpose and approach examinations with
+              greater confidence.
+            </p>
+            <div className="academic-tags">
+              <span>Classes 1–10 · All subjects</span>
+              <span>Classes 11–12 · Selected subjects</span>
+              <span>CBSE · ICSE · State Board</span>
+            </div>
+            <Link to="/school-boards" className="button-light">
+              Explore academic tuition <ArrowUpRight size={18} />
+            </Link>
+          </div>
+          <div className="academic-art">
+            <div className="academic-photo">
+              <img
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85"
+                alt="Students learning together in a classroom"
+                loading="lazy"
+              />
+            </div>
+            <div className="academic-orbit orbit-one" />
+            <div className="academic-orbit orbit-two" />
+            <div className="academic-floating-card">
+              <BookOpen size={19} />
+              <span><strong>Learn deeply</strong><small>Build lasting understanding</small></span>
             </div>
           </div>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--navy)] text-white font-semibold text-sm hover:bg-[var(--navy-deep)] transition-colors shrink-0"
-          >
-            Get Directions & Contact <ArrowRight size={16} />
-          </Link>
+        </div>
+      </section>
+
+      <section className="skills-section section-pad">
+        <div className="site-container">
+          <div className="section-topline">
+            <div>
+              <span className="section-kicker">BEYOND THE CLASSROOM</span>
+              <h2 className="section-heading">Skills that stay <span className="text-gradient">with you.</span></h2>
+            </div>
+            <Link to="/skills-programs" className="text-link desktop-only">See all programmes <ArrowUpRight size={17} /></Link>
+          </div>
+          <div className="skills-list">
+            {skillPrograms.slice(0, 5).map((program, index) => (
+              <Link to={`/skills-programs/${program.slug}`} className="skill-row" key={program.slug}>
+                <span className="skill-index">0{index + 1}</span>
+                <span className="skill-name">{program.title}</span>
+                <span className="skill-description">{program.short}</span>
+                <ArrowUpRight className="skill-arrow" size={20} />
+              </Link>
+            ))}
+          </div>
+          <Link to="/skills-programs" className="text-link mobile-only">See all programmes <ArrowUpRight size={17} /></Link>
+        </div>
+      </section>
+
+      <section className="why-section section-pad">
+        <div className="site-container why-grid">
+          <div>
+            <span className="section-kicker">WHY EDUSKILLS</span>
+            <h2 className="section-heading">A thoughtful approach to <span className="text-gradient">every learner.</span></h2>
+            <p className="why-intro">
+              A learning environment that brings academic support and
+              practical development together, with room for every learner
+              to progress at their own pace.
+            </p>
+          </div>
+          <div className="principles-list">
+            {principles.map((principle, index) => (
+              <div className="principle-item" key={principle}>
+                <span>0{index + 1}</span>
+                <p><CheckCircle2 size={18} />{principle}</p>
+              </div>
+            ))}
+            <div className="delivery-note">
+              <MapPin size={19} />
+              <div><strong>Learn your way</strong><span>At our Kumbakonam centre or through online classes.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="closing-section">
+        <div className="site-container">
+          <div className="closing-card">
+            <div className="closing-glow" />
+            <span className="section-kicker section-kicker-light">YOUR NEXT STEP STARTS HERE</span>
+            <h2>Ready to make<br /><span>progress?</span></h2>
+            <p>Tell us what you want to learn. We'll help you find the right programme.</p>
+            <div className="hero-actions">
+              <Link to="/enroll" className="button-light">Make an enquiry <ArrowUpRight size={18} /></Link>
+              <a href={academy.whatsappLink} target="_blank" rel="noreferrer" className="closing-whatsapp">Chat on WhatsApp <ArrowUpRight size={17} /></a>
+            </div>
+            <div className="closing-mark">E.</div>
+          </div>
         </div>
       </section>
     </div>
