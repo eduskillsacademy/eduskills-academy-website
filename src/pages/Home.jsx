@@ -1,288 +1,163 @@
 import { Link } from "react-router-dom";
 import {
-  ArrowUpRight, BookOpen, Brain, Code2, GraduationCap, Languages,
-  MapPin, Sparkles, Target, CheckCircle2, ChevronRight
+  ArrowRight, ArrowUpRight, BookOpen, Brain, Code2, GraduationCap,
+  Languages, Sparkles, Star, Zap, CheckCircle2
 } from "lucide-react";
-import { skillPrograms, academy } from "../data/academy";
+import { academy, skillPrograms } from "../data/academy";
+import "./Home.css";
 
-const pathways = [
+const tracks = [
   {
-    number: "01",
-    title: "Academic learning",
-    description: "Build strong subject foundations and prepare with confidence for school examinations.",
-    meta: "School tuition · Classes 1–12",
+    tag: "01 / ACADEMICS",
+    title: "Learn it. Understand it. Own it.",
+    description: "Strong subject foundations, clear explanations and focused practice for every school milestone.",
+    detail: "Classes 1–10 · All subjects",
     icon: BookOpen,
-    tone: "blue",
+    color: "blue",
     href: "/school-boards",
+    symbol: "A+",
   },
   {
-    number: "02",
-    title: "Communication",
-    description: "Develop everyday English, grammar and the confidence to express ideas clearly.",
-    meta: "Spoken English · Grammar",
+    tag: "02 / BOARD EXAMS",
+    title: "Your goals deserve a game plan.",
+    description: "Focused subject support for senior students preparing for important board examinations.",
+    detail: "Classes 11–12 · Maths, Science & more",
+    icon: GraduationCap,
+    color: "purple",
+    href: "/school-boards",
+    symbol: "12",
+  },
+  {
+    tag: "03 / COMMUNICATION",
+    title: "Find your voice. Make it count.",
+    description: "Build practical English, grammar and communication skills through active practice.",
+    detail: "Spoken English · Grammar",
     icon: Languages,
-    tone: "lavender",
+    color: "orange",
     href: "/skills-programs/spoken-english",
+    symbol: "Hi!",
   },
   {
-    number: "03",
-    title: "Logical thinking",
-    description: "Strengthen problem-solving through mental mathematics and aptitude practice.",
-    meta: "Speed Maths · Aptitude",
-    icon: Brain,
-    tone: "mint",
-    href: "/skills-programs",
-  },
-  {
-    number: "04",
-    title: "Digital skills",
-    description: "Explore computing, coding and practical AI tools for a changing world.",
-    meta: "Coding · AI · Computing",
+    tag: "04 / FUTURE SKILLS",
+    title: "Get ready for what’s next.",
+    description: "Explore coding, AI tools, computing and aptitude with hands-on learning.",
+    detail: "Coding · AI · Aptitude · Speed Maths",
     icon: Code2,
-    tone: "peach",
+    color: "green",
     href: "/skills-programs",
+    symbol: "01",
   },
 ];
 
-const principles = [
-  "Personal attention and structured learning",
-  "Academic support alongside practical skills",
-  "Learning pathways for different stages of life",
+const benefits = [
+  "Concept-first teaching, not rote learning",
+  "Academic support and practical skills in one place",
+  "Learning options for school, college and beyond",
 ];
 
 export default function Home() {
   return (
-    <div className="home-page">
-      <section className="hero-shell">
-        <div className="hero-orb hero-orb-one" />
-        <div className="hero-orb hero-orb-two" />
-        <div className="site-container hero-grid">
-          <div className="hero-copy">
-            <div className="eyebrow-pill">
-              <span className="eyebrow-dot" />
-              LEARN WITH PURPOSE · GROW WITH CONFIDENCE
-            </div>
-            <h1>
-              A brighter way
-              <br />
-              to <span className="text-gradient">learn, grow</span>
-              <br />
-              and move forward.
-            </h1>
-            <p className="hero-description">
-              From strong academic foundations to future-ready skills,
-              EduSkills Academy helps learners take their next step with
-              clarity and confidence.
+    <div className="mv-home">
+      <section className="mv-hero">
+        <div className="mv-hero-blob mv-blob-a" />
+        <div className="mv-hero-blob mv-blob-b" />
+        <div className="mv-container mv-hero-layout">
+          <div className="mv-hero-content">
+            <div className="mv-kicker"><span className="mv-kicker-dot" /> LEARN BOLDLY. GROW LIMITLESSLY.</div>
+            <h1>Big dreams need<br /><span className="mv-gradient-text">bright beginnings.</span></h1>
+            <p className="mv-hero-lead">
+              More than tuition. More than skills. A place where curious minds
+              build strong foundations, discover their strengths and get ready
+              for what comes next.
             </p>
-            <div className="hero-actions">
-              <Link to="/skills-programs" className="button-primary">
-                Explore programmes <ArrowUpRight size={18} />
-              </Link>
-              <Link to="/about" className="button-secondary">
-                Discover the academy <ChevronRight size={17} />
-              </Link>
+            <div className="mv-hero-buttons">
+              <Link to="/enroll" className="mv-btn mv-btn-primary">Start your learning journey <ArrowUpRight size={18} /></Link>
+              <Link to="/school-boards" className="mv-btn mv-btn-quiet">Explore academics <ArrowRight size={17} /></Link>
             </div>
-            <div className="hero-proof">
-              <div className="proof-icon"><GraduationCap size={19} /></div>
-              <div>
-                <strong>One place. More ways to grow.</strong>
-                <span>Academic learning and practical skills in one academy.</span>
-              </div>
+            <div className="mv-hero-footnote">
+              <span className="mv-footnote-icon"><Sparkles size={17} /></span>
+              <span><strong>One academy. Many possibilities.</strong><small>Academic excellence meets future-ready skills.</small></span>
             </div>
           </div>
 
-          <div className="hero-visual">
-            <div className="hero-image-frame">
-              <img
-                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85"
-                alt="University students celebrating their learning journey"
-                fetchPriority="high"
-              />
-              <div className="hero-image-wash" />
-              <div className="image-caption">
-                <span className="caption-kicker">THE NEXT CHAPTER</span>
-                <strong>Make learning<br />your advantage.</strong>
+          <div className="mv-hero-art" aria-label="Learning and creativity illustration">
+            <div className="mv-art-backdrop" />
+            <div className="mv-art-card mv-art-main">
+              <div className="mv-art-topline"><span>YOUR NEXT CHAPTER</span><span className="mv-art-live"><i /> LET'S GO</span></div>
+              <div className="mv-art-illustration">
+                <div className="mv-sun" />
+                <div className="mv-book book-one" />
+                <div className="mv-book book-two" />
+                <div className="mv-pencil" />
+                <div className="mv-star star-one">✦</div>
+                <div className="mv-star star-two">✳</div>
+                <div className="mv-orbit-label">IDEAS<br />IN MOTION</div>
               </div>
+              <div className="mv-art-bottom"><strong>Think curious.</strong><span>Learn with confidence.</span></div>
             </div>
-            <div className="floating-note floating-note-top">
-              <span className="floating-note-icon"><Sparkles size={17} /></span>
-              <span><strong>Curiosity first</strong><small>Confidence follows</small></span>
-            </div>
-            <div className="floating-note floating-note-bottom">
-              <span className="floating-note-icon note-icon-blue"><Target size={18} /></span>
-              <span><strong>Skills for tomorrow</strong><small>Learn by doing</small></span>
-            </div>
-            <div className="hero-stamp">EDU<br /><span>+</span><br />SKILLS</div>
+            <div className="mv-float-card mv-float-top"><span className="mv-float-icon purple"><Brain size={18} /></span><span><b>Think smarter</b><small>Build problem-solving skills</small></span></div>
+            <div className="mv-float-card mv-float-bottom"><span className="mv-float-icon orange"><Zap size={18} /></span><span><b>Grow every day</b><small>Small steps. Big progress.</small></span></div>
+            <div className="mv-round-sticker"><span>LEARN</span><b>+</b><span>CREATE</span></div>
           </div>
         </div>
-        <div className="hero-bottom-line">
-          <div className="site-container hero-bottom-inner">
-            <span>ACADEMIC EXCELLENCE</span><i />
-            <span>PERSONAL DEVELOPMENT</span><i />
-            <span>FUTURE-READY SKILLS</span>
+        <div className="mv-hero-ribbon">
+          <div className="mv-container mv-ribbon-inner">
+            <span>ACADEMIC SUPPORT</span><i /><span>COMMUNICATION</span><i /><span>CREATIVE THINKING</span><i /><span>DIGITAL SKILLS</span>
           </div>
         </div>
       </section>
 
-      <section className="intro-section section-pad">
-        <div className="site-container intro-grid">
-          <div>
-            <span className="section-kicker">THE EDUSKILLS APPROACH</span>
-            <h2 className="section-heading">
-              Education should prepare you for <span className="text-gradient">more.</span>
-            </h2>
-          </div>
-          <div className="intro-aside">
-            <p>
-              Learning is more than completing a syllabus. It is about asking
-              better questions, communicating clearly and building the
-              confidence to take on what comes next.
-            </p>
-            <Link to="/about" className="text-link">Get to know us <ArrowUpRight size={17} /></Link>
-          </div>
+      <section className="mv-intro mv-section">
+        <div className="mv-container mv-intro-grid">
+          <div><span className="mv-label">WELCOME TO EDUSKILLS ACADEMY</span><h2>Make room for <span className="mv-gradient-text">what you can become.</span></h2></div>
+          <div className="mv-intro-copy"><p>Every learner has a different starting point and a bigger possibility ahead. We bring school learning and real-world skills together, so progress feels clear, practical and exciting.</p><Link to="/about" className="mv-inline-link">Meet the academy <ArrowUpRight size={17} /></Link></div>
         </div>
       </section>
 
-      <section className="pathways-section section-pad">
-        <div className="site-container">
-          <div className="section-topline">
-            <div>
-              <span className="section-kicker">EXPLORE YOUR PATH</span>
-              <h2 className="section-heading">Find the space to <span className="text-gradient">level up.</span></h2>
-            </div>
-            <p className="section-side-copy">
-              Thoughtfully designed learning experiences for school students,
-              college learners and those building new skills.
-            </p>
-          </div>
-
-          <div className="pathway-grid">
-            {pathways.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link to={item.href} className={`pathway-card pathway-${item.tone}`} key={item.number}>
-                  <div className="pathway-card-top">
-                    <span className="pathway-number">{item.number} / 04</span>
-                    <span className="pathway-icon"><Icon size={22} strokeWidth={1.8} /></span>
-                  </div>
-                  <div className="pathway-card-content">
-                    <span className="pathway-meta">{item.meta}</span>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                  </div>
-                  <span className="pathway-arrow"><ArrowUpRight size={20} /></span>
-                </Link>
-              );
+      <section className="mv-tracks mv-section">
+        <div className="mv-container">
+          <div className="mv-section-head"><div><span className="mv-label">FIND YOUR PATH</span><h2>Choose your next <span className="mv-gradient-text">big move.</span></h2></div><p>Explore learning pathways designed to build confidence today and open doors tomorrow.</p></div>
+          <div className="mv-track-grid">
+            {tracks.map((track) => {
+              const Icon = track.icon;
+              return <Link to={track.href} className={`mv-track-card ${track.color}`} key={track.tag}>
+                <div className="mv-track-top"><span>{track.tag}</span><span className="mv-track-symbol">{track.symbol}</span></div>
+                <div className="mv-track-icon"><Icon size={23} /></div>
+                <h3>{track.title}</h3><p>{track.description}</p>
+                <div className="mv-track-bottom"><span>{track.detail}</span><span className="mv-track-arrow"><ArrowUpRight size={18} /></span></div>
+              </Link>;
             })}
           </div>
-          <div className="all-programmes-row">
-            <span>Explore all learning programmes</span>
-            <Link to="/skills-programs" className="text-link">View programmes <ArrowUpRight size={17} /></Link>
+        </div>
+      </section>
+
+      <section className="mv-feature mv-section">
+        <div className="mv-container">
+          <div className="mv-feature-panel">
+            <div className="mv-feature-copy"><span className="mv-label mv-label-light">STRONG FOUNDATIONS START HERE</span><h2>School learning,<br /><em>made clearer.</em></h2><p>Understand concepts, practise with purpose and prepare for exams with steady guidance and support.</p><div className="mv-feature-pills"><span>Classes 1–10 · All subjects</span><span>Classes 11–12 · Core subjects</span><span>CBSE · ICSE · State Board</span></div><Link to="/school-boards" className="mv-btn mv-btn-white">Explore tuition <ArrowUpRight size={18} /></Link></div>
+            <div className="mv-feature-visual"><div className="mv-feature-shape shape-one" /><div className="mv-feature-shape shape-two" /><div className="mv-feature-sheet"><div className="mv-sheet-head"><span>LEARNING MODE</span><span>✦</span></div><div className="mv-sheet-title">Progress<br />looks good<br /><b>on you.</b></div><div className="mv-sheet-lines"><i /><i /><i /></div><div className="mv-sheet-stamp">KEEP<br />GOING!</div></div><div className="mv-feature-bubble"><CheckCircle2 size={17} /><span><b>Concepts first</b><small>Confidence follows</small></span></div></div>
           </div>
         </div>
       </section>
 
-      <section className="academic-section section-pad">
-        <div className="site-container academic-panel">
-          <div className="academic-copy">
-            <span className="section-kicker section-kicker-light">A STRONG FOUNDATION</span>
-            <h2>Make every subject a step forward.</h2>
-            <p>
-              Supportive school tuition designed to help learners understand
-              concepts, practise with purpose and approach examinations with
-              greater confidence.
-            </p>
-            <div className="academic-tags">
-              <span>Classes 1–10 · All subjects</span>
-              <span>Classes 11–12 · Selected subjects</span>
-              <span>CBSE · ICSE · State Board</span>
-            </div>
-            <Link to="/school-boards" className="button-light">
-              Explore academic tuition <ArrowUpRight size={18} />
-            </Link>
+      <section className="mv-skills mv-section">
+        <div className="mv-container">
+          <div className="mv-section-head"><div><span className="mv-label">SKILLS FOR REAL LIFE</span><h2>Make your curiosity <span className="mv-gradient-text">useful.</span></h2></div><Link to="/skills-programs" className="mv-inline-link mv-desktop-link">Explore all skills <ArrowUpRight size={17} /></Link></div>
+          <div className="mv-skill-grid">
+            {skillPrograms.slice(0, 5).map((program, index) => <Link to={`/skills-programs/${program.slug}`} className={`mv-skill-card skill-${index + 1}`} key={program.slug}><span className="mv-skill-number">0{index + 1}</span><span className="mv-skill-mark">{["Aa", "×", "↗", "AI", "</>"][index]}</span><h3>{program.title}</h3><p>{program.short}</p><span className="mv-skill-link">Discover programme <ArrowUpRight size={15} /></span></Link>)}
           </div>
-          <div className="academic-art">
-            <div className="academic-photo">
-              <img
-                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85"
-                alt="Students learning together in a classroom"
-                loading="lazy"
-              />
-            </div>
-            <div className="academic-orbit orbit-one" />
-            <div className="academic-orbit orbit-two" />
-            <div className="academic-floating-card">
-              <BookOpen size={19} />
-              <span><strong>Learn deeply</strong><small>Build lasting understanding</small></span>
-            </div>
-          </div>
+          <Link to="/skills-programs" className="mv-inline-link mv-mobile-link">Explore all skills <ArrowUpRight size={17} /></Link>
         </div>
       </section>
 
-      <section className="skills-section section-pad">
-        <div className="site-container">
-          <div className="section-topline">
-            <div>
-              <span className="section-kicker">BEYOND THE CLASSROOM</span>
-              <h2 className="section-heading">Skills that stay <span className="text-gradient">with you.</span></h2>
-            </div>
-            <Link to="/skills-programs" className="text-link desktop-only">See all programmes <ArrowUpRight size={17} /></Link>
-          </div>
-          <div className="skills-list">
-            {skillPrograms.slice(0, 5).map((program, index) => (
-              <Link to={`/skills-programs/${program.slug}`} className="skill-row" key={program.slug}>
-                <span className="skill-index">0{index + 1}</span>
-                <span className="skill-name">{program.title}</span>
-                <span className="skill-description">{program.short}</span>
-                <ArrowUpRight className="skill-arrow" size={20} />
-              </Link>
-            ))}
-          </div>
-          <Link to="/skills-programs" className="text-link mobile-only">See all programmes <ArrowUpRight size={17} /></Link>
+      <section className="mv-why mv-section">
+        <div className="mv-container mv-why-grid">
+          <div><span className="mv-label">THE EDUSKILLS DIFFERENCE</span><h2>Progress that feels <span className="mv-gradient-text">personal.</span></h2><p className="mv-why-lead">A supportive learning environment where every question matters, every effort counts and every learner gets room to grow.</p></div>
+          <div className="mv-benefits">{benefits.map((benefit, i) => <div className="mv-benefit" key={benefit}><span>0{i + 1}</span><p><CheckCircle2 size={18} />{benefit}</p></div>)}<div className="mv-location"><span className="mv-location-icon">✦</span><div><b>Find us in Kumbakonam</b><small>Visit our centre or ask about online learning.</small></div></div></div>
         </div>
       </section>
 
-      <section className="why-section section-pad">
-        <div className="site-container why-grid">
-          <div>
-            <span className="section-kicker">WHY EDUSKILLS</span>
-            <h2 className="section-heading">A thoughtful approach to <span className="text-gradient">every learner.</span></h2>
-            <p className="why-intro">
-              A learning environment that brings academic support and
-              practical development together, with room for every learner
-              to progress at their own pace.
-            </p>
-          </div>
-          <div className="principles-list">
-            {principles.map((principle, index) => (
-              <div className="principle-item" key={principle}>
-                <span>0{index + 1}</span>
-                <p><CheckCircle2 size={18} />{principle}</p>
-              </div>
-            ))}
-            <div className="delivery-note">
-              <MapPin size={19} />
-              <div><strong>Learn your way</strong><span>At our Kumbakonam centre or through online classes.</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="closing-section">
-        <div className="site-container">
-          <div className="closing-card">
-            <div className="closing-glow" />
-            <span className="section-kicker section-kicker-light">YOUR NEXT STEP STARTS HERE</span>
-            <h2>Ready to make<br /><span>progress?</span></h2>
-            <p>Tell us what you want to learn. We'll help you find the right programme.</p>
-            <div className="hero-actions">
-              <Link to="/enroll" className="button-light">Make an enquiry <ArrowUpRight size={18} /></Link>
-              <a href={academy.whatsappLink} target="_blank" rel="noreferrer" className="closing-whatsapp">Chat on WhatsApp <ArrowUpRight size={17} /></a>
-            </div>
-            <div className="closing-mark">E.</div>
-          </div>
-        </div>
-      </section>
+      <section className="mv-cta-section"><div className="mv-container"><div className="mv-cta"><div className="mv-cta-spark">✳</div><span className="mv-label mv-label-light">YOUR NEXT STEP STARTS HERE</span><h2>Ready when<br /><em>you are.</em></h2><p>Tell us what you want to learn. We’ll help you find the right programme.</p><div className="mv-cta-actions"><Link to="/enroll" className="mv-btn mv-btn-white">Make an enquiry <ArrowUpRight size={18} /></Link><a href={academy.whatsappLink} target="_blank" rel="noreferrer" className="mv-cta-whatsapp">Chat on WhatsApp <ArrowUpRight size={17} /></a></div><div className="mv-cta-word">E!</div></div></div></section>
     </div>
   );
 }
