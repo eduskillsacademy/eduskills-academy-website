@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { academy, skillPrograms } from "../data/academy";
 import "./Home.css";
+import SEO from "../components/SEO";
 
 const tracks = [
   {
@@ -58,6 +59,11 @@ const benefits = [
 export default function Home() {
   return (
     <div className="mv-home">
+      <SEO
+        title="Tuition Centre in Kumbakonam | EduSkills Academy"
+        description="Looking for tuition classes in Kumbakonam? EduSkills Academy offers Classes 1–10 tuition, 11th–12th coaching, Spoken English, Grammar, Coding, AI and Aptitude."
+        path="/"
+      />
       <section className="mv-hero">
         <div className="mv-hero-blob mv-blob-a" />
         <div className="mv-hero-blob mv-blob-b" />
