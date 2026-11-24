@@ -11,6 +11,16 @@ export default function SkillProgramDetail() {
 
   const isPlaceholder = (val) => typeof val === "string" && val.startsWith("PLACEHOLDER");
 
+  return (
+    <div>
+      <SEO
+        title={`${program.title} Classes in Kumbakonam | EduSkills Academy`}
+        description={`${program.short} Join ${program.title} classes at EduSkills Academy, Kumbakonam. Enquire about course details and batches.`}
+        path={`/skills-programs/${slug}`}
+      />
+      <section className="bg-[var(--navy)] text-white">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 pt-14 pb-12">
+
   <SEO
   title={`${program.title} Classes in Kumbakonam | EduSkills Academy`}
   description={`${program.short} Join ${program.title} classes at EduSkills Academy, Kumbakonam. Enquire about course details and batches.`}
