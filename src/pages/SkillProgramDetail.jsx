@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Users, MapPinned, IndianRupee } from "lucide-react";
 import { skillPrograms } from "../data/academy";
+import SEO from "../components/SEO";
 
 export default function SkillProgramDetail() {
   const { slug } = useParams();
@@ -10,9 +11,11 @@ export default function SkillProgramDetail() {
 
   const isPlaceholder = (val) => typeof val === "string" && val.startsWith("PLACEHOLDER");
 
-  return (
-    <div>
-      <section className="bg-[var(--navy)] text-white">
+  <SEO
+  title={`${program.title} Classes in Kumbakonam | EduSkills Academy`}
+  description={`${program.short} Join ${program.title} classes at EduSkills Academy, Kumbakonam. Enquire about course details and batches.`}
+  path={`/skills-programs/${slug}`}
+/>
         <div className="max-w-4xl mx-auto px-5 sm:px-8 pt-14 pb-12">
           <Link to="/skills-programs" className="text-white/60 text-sm hover:text-white transition-colors">
             ← All Skills Programs
