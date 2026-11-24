@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CheckCircle2, Send, CreditCard, Info, AlertCircle, Loader2 } from "lucide-react";
 import { boardPrograms, skillPrograms, academy } from "../data/academy";
+import SEO from "../components/SEO";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xqevzqgl";
 
@@ -48,7 +49,16 @@ export default function Enroll() {
 
   if (status === "sent") {
     return (
-      <div className="max-w-xl mx-auto px-5 sm:px-8 py-24 text-center">
+      <div 
+        return (
+  <div>
+    <SEO
+      title="Enquire About Classes | EduSkills Academy Kumbakonam"
+      description="Send an admission enquiry to EduSkills Academy in Kumbakonam for school tuition, higher secondary coaching and skill development programmes."
+      path="/enroll"
+    />
+    <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-16 pb-8">
+      className="max-w-xl mx-auto px-5 sm:px-8 py-24 text-center">
         <CheckCircle2 size={52} className="text-[var(--sage)] mx-auto mb-5" />
         <h1 className="font-display font-semibold text-3xl text-[var(--navy)] mb-3">
           Enquiry received
