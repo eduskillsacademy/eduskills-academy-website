@@ -1,9 +1,15 @@
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { academy } from "../data/academy";
+import SEO from "../components/SEO";
 
 export default function Contact() {
   return (
-    <div>
+    <div> 
+      <SEO
+  title="Contact EduSkills Academy | Tuition Centre in Kumbakonam"
+  description="Contact EduSkills Academy in Kumbakonam for tuition classes, Spoken English, coding, AI and other skill programmes. Call, WhatsApp or visit our centre."
+  path="/contact"
+/>
       <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-10">
         <span className="font-mono text-xs tracking-wide uppercase text-[var(--amber)]">
           Get in Touch
