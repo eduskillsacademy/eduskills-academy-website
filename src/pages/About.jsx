@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, GraduationCap, MapPin } from "lucide-react";
 import { academy } from "../data/academy";
+import SEO from "../components/SEO";
 
 export default function About() {
   return (
     <div>
+      <SEO
+  title="About EduSkills Academy | Tuition & Skills Centre in Kumbakonam"
+  description="Learn about EduSkills Academy in Kumbakonam, a tuition and skills centre combining school subject support with Spoken English, Aptitude, AI and practical learning."
+  path="/about"
+/>
       <section className="max-w-4xl mx-auto px-5 sm:px-8 pt-16 pb-12">
         <span className="font-mono text-xs tracking-wide uppercase text-[var(--amber)]">
           About Us
